@@ -1,0 +1,28 @@
+<div class="carsList">
+  <table class="table table-striped">
+    <thead >
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Year</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let car of cars; let i = index">
+            <td>{{ i+1 }}</td>
+            <td>{{car.name | uppercase}}</td>
+            <td>{{car.year}}</td>
+            <td>
+                <button type="button" class="btn btn-info" routerLink="/details/{{ i }}" placement="top" ngbTooltip="View details"><fa name='eye'></fa></button>
+              </td>
+            <td>
+              <button type="button" class="btn btn-secondary" (click)="onEdit(i)" placement="top" ngbTooltip="Edit details"><fa name='edit'></fa></button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-danger" (click)="onDelete(i)" placement="top" ngbTooltip="Delete entry"><fa name='trash'></fa></button>
+            </td>
+    
+        </tr>
+    </tbody>
+  </table>
+</div>
