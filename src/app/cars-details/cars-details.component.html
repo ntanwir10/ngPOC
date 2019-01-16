@@ -1,3 +1,18 @@
-<p>
-  cars-details works!
-</p>
+<div class="regdetails">
+  <div class="jumbotron">
+      <h1 class="display-4">Car Name: {{ carDetails.name }}</h1>
+      <p class="lead">Below are the details:</p>
+      <hr class="my-4">
+      <p><strong>Miles per gallon:</strong> {{ carDetails.miles_per_gallon }}</p>
+      <p><strong>Cylinder:</strong> {{ carDetails.cylinders }}</p>
+      <p><strong>Displacement:</strong> {{ carDetails.displacement }}</p>
+      <p><strong>Horsepower:</strong> {{ carDetails.horsepower }}</p>
+      <p><strong>Weight in Pounds</strong> {{ carDetails.weight_in_lbs }}</p>
+      <p><strong>Acceleration:</strong> {{ carDetails.acceleration }}</p>
+      <p><strong>Year:</strong> {{ carDetails.year }}</p>
+      <p><strong>Origin:</strong> {{ carDetails.origin }}</p>
+      <p class="lead">
+        <a class="btn btn-primary btn-lg text-light" (click)="goBack()" role="button">Go Back</a>
+      </p>
+    </div>
+</div>

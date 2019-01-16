@@ -13,7 +13,7 @@
             <td>{{car.name | uppercase}}</td>
             <td>{{car.year}}</td>
             <td>
-                <button type="button" class="btn btn-info" routerLink="/details/{{ i }}" placement="top" ngbTooltip="View details"><fa name='eye'></fa></button>
+                <button type="button" class="btn btn-info" routerLink="/car-details/{{ i }}" placement="top" ngbTooltip="View details"><fa name='eye'></fa></button>
               </td>
             <td>
               <button type="button" class="btn btn-secondary" (click)="onEdit(i)" placement="top" ngbTooltip="Edit details"><fa name='edit'></fa></button>
@@ -25,4 +25,30 @@
         </tr>
     </tbody>
   </table>
+  <div class="text-right">
+      <button type="submit" class="btn btn-primary" (click)="onNew()">New</button>
+  </div>
 </div>
+<!-- Edit/Add User  -->
+
+<div class="regentry" *ngIf="showNew">
+    <h2 class="text-center">{{ submitType === 'Save'? 'Register New Car' : 'Edit Car' }}</h2>
+    <br>
+    <form (ngSubmit)="onSave()">
+      <div class="form-group row">
+        <label for="name-input" class="col-2 col-form-label">First Name</label>
+        <div class="col-10">
+          <input class="form-control" type="text" [(ngModel)]="car.name" name="name" required>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="year-input" class="col-2 col-form-label">Year</label>
+        <div class="col-10">
+          <input class="form-control" type="text" [(ngModel)]="car.year" name="year" required>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-success">{{submitType}}</button>&nbsp;
+      <button type="submit" class="btn btn-primary" (click)="onCancel()">Cancel</button>
+    </form>
+  </div>
+

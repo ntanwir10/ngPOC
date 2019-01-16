@@ -15,7 +15,8 @@ export class CarService {
 
   fetchData(): Observable<ICars[]> {
     return this.http.get<ICars[]>(this._url).pipe(tap(
-      (data) => JSON.stringify(data)
+      data => JSON.stringify(data)
+      //console.log(data);
     ));
   }
 }

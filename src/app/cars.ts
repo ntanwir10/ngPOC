@@ -1,7 +1,7 @@
-export interface ICars {
+export class ICars {
     name: string;
     miles_per_gallon: number;
-    cylinder: number;
+    cylinders: number;
     displacement: number;
     horsepower: number;
     weight_in_lbs: number;
