@@ -1,5 +1,5 @@
-<div class="carsList">
-  <table class="table table-striped">
+<div class="carsList" *ngIf="loading">
+  <table *ngIf="loading" class="table table-striped">
     <thead >
       <tr>
         <th>#</th>
@@ -7,7 +7,7 @@
         <th>Year</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody >
         <tr *ngFor="let car of cars; let i = index">
             <td>{{ i+1 }}</td>
             <td>{{car.name | uppercase}}</td>
@@ -21,7 +21,6 @@
             <td>
               <button type="button" class="btn btn-danger" (click)="onDelete(i)" placement="top" ngbTooltip="Delete entry"><fa name='trash'></fa></button>
             </td>
-    
         </tr>
     </tbody>
   </table>
@@ -52,3 +51,4 @@
     </form>
   </div>
 
+  <div *ngIf="!loaded"><img class="loading" src="../../assets/loading.gif" alt="loading" srcset=""></div>

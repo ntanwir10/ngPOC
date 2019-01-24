@@ -16,10 +16,13 @@ export class CarsComponent implements OnInit {
   public car: ICars;
   showNew: Boolean = false;
   submitType: string;
+  loading: Boolean = false;
 
   constructor(private _carService: CarService) { }
 
   ngOnInit() {
+    this.loading = true;
+    console.log('loading', this.loading);
     this._carService.fetchData().subscribe(data => this.cars = data);
   }
 
