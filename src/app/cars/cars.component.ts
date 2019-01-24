@@ -15,7 +15,7 @@ export class CarsComponent implements OnInit {
   selectedRow: number;
   public car: ICars;
   showNew: Boolean = false;
-  submitType: string = 'Save';
+  submitType: string;
 
   constructor(private _carService: CarService) { }
 
@@ -26,13 +26,13 @@ export class CarsComponent implements OnInit {
   onEdit(index: number) {
     this.selectedRow = index;
     this.car = new ICars;
-    this.car = Object.assign({}, this.registeredCars[this.selectedRow]);
+    this.car = Object.assign({}, this.cars[this.selectedRow]);
     this.showNew = true;
     this.submitType = 'Update';
   }
 
   onDelete(index: number) {
-    this.registeredCars.splice(index, 1);
+    this.cars.splice(index, 1);
   }
 
   onNew() {
@@ -44,14 +44,10 @@ export class CarsComponent implements OnInit {
   onSave(index: number) {
     this.selectedRow = index;
     if (this.submitType === 'Save' ) {
-      console.log(this.car);
-      console.log('reg cars', this.registeredCars);
-      this.registeredCars.push(this.car);
-      // console.log('cars', this.cars);
-      this.cars.push(this.registeredCars);
+      this.cars.push(this.car);
     } else {
-      this.registeredCars[this.selectedRow].name = this.car.name;
-      this.registeredCars[this.selectedRow].year = this.car.year;
+      this.car[this.selectedRow].name = this.car.name;
+      this.car[this.selectedRow].year = this.car.year;
     }
     this.showNew = false;
   }
