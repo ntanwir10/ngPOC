@@ -22,7 +22,7 @@ export class CarsComponent implements OnInit {
 
   ngOnInit() {
     this.loading = true;
-    console.log('loading', this.loading);
+    //console.log('loading', this.loading);
     this._carService.fetchData().subscribe(data => this.cars = data);
   }
 
@@ -44,13 +44,14 @@ export class CarsComponent implements OnInit {
     this.showNew = true;
   }
 
-  onSave(index: number) {
-    this.selectedRow = index;
+  onSave() {
+    // this.selectedRow = index;
     if (this.submitType === 'Save' ) {
       this.cars.push(this.car);
     } else {
-      this.car[this.selectedRow].name = this.car.name;
-      this.car[this.selectedRow].year = this.car.year;
+      console.log('this car', this.car.name);
+      this.cars[this.selectedRow].name = this.car.name;
+      this.cars[this.selectedRow].year = this.car.year;
     }
     this.showNew = false;
   }
