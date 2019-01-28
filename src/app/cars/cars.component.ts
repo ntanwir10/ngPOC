@@ -22,7 +22,7 @@ export class CarsComponent implements OnInit {
 
   ngOnInit() {
     this.loading = true;
-    //console.log('loading', this.loading);
+    // console.log('loading', this.loading);
     this._carService.fetchData().subscribe(data => this.cars = data);
   }
 

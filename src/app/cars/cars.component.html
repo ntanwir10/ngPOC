@@ -24,8 +24,8 @@
         </tr>
     </tbody>
   </table>
-  <div class="text-right">
-      <button type="submit" class="btn btn-primary" (click)="onNew()">New</button>
+  <div class='text-right'>
+      <button mat-fab color="primary" (click)="onNew()">New</button>
   </div>
 </div>
 <!-- Edit/Add User  -->
@@ -49,6 +49,6 @@
       <button type="submit" class="btn btn-success">{{submitType}}</button>&nbsp;
       <button type="submit" class="btn btn-primary" (click)="onCancel()">Cancel</button>
     </form>
-  </div>
+</div>
 
-  <div *ngIf="!loading"><img class="loading" src="../../assets/loading.gif" alt="loading" srcset=""></div>
+<div *ngIf="!loading"><img class="loading" src="../../assets/loading.gif" alt="loading" srcset=""></div>
